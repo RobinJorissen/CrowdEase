@@ -8,47 +8,79 @@
 
 ## 📋 Overzicht
 
-CrowdEase helpt gebruikers om rustige winkels te vinden door:
+CrowdEase is een moderne web applicatie die shoppers helpt om drukte te vermijden door real-time informatie te bieden over winkeldrukte in Gent. Gebruikers kunnen rustige winkels vinden, punten verdienen via check-ins, en beloningen inwisselen.
 
-- **Real-time drukte-informatie** te tonen op een interactieve kaart
-- **Gebruikersrapportages** te verzamelen met gewogen betrouwbaarheid (GPS: 100%, handmatig: 70%)
-- **Historische patronen** te analyseren voor betere voorspellingen
-- **Privacy-first** benadering: geen persoonlijke data, alles client-side
+### 🎯 Projectdoel
+
+Het doel van CrowdEase is om:
+- Winkelen aangenamer te maken door drukte te vermijden
+- Wachttijden te verminderen voor consumenten
+- Betere spreiding van klanten over de dag te stimuleren
+- Een gamified experience te bieden via punten en beloningen
+- Privacy te waarborgen door geen persoonlijke data op te slaan
 
 ### ✨ Kernfunctionaliteit
 
 - 🗺️ **Kaart & Lijst Weergave**: Schakel tussen interactieve kaart en gesorteerde lijst
-- 📍 Automatische locatiebepaling via GPS of adresinvoer
-- 🎨 Visuele drukte-indicatoren (groen/geel/rood markers)
-- ⭐ **Slimme Aanbevelingen**: Rustige winkels krijgen voorrang (badge + star icon)
-- 📊 Gewogen rapportage systeem voor nauwkeurige data
+- 📍 **Locatiebepaling**: Automatisch via GPS of handmatig via adresinvoer
+- 🎨 **Visuele Drukte-indicatoren**: Groen (rustig), geel (matig), rood (druk) markers
+- ⭐ **Slimme Aanbevelingen**: Rustige en open winkels krijgen voorrang met speciale badge
+- 🕐 **Openingstijden**: Real-time status (open/gesloten) met tijden
+- 🌙 **Nachtwinkel Support**: Speciale openingstijden over middernacht
+- 📊 **Gewogen Rapportage**: GPS-gevalideerde rapporten (100%) vs handmatig (70%)
 - 🎁 **Check-in Systeem**: Verdien 10 punten per check-in (GPS-validatie binnen 100m)
-- 💎 **Beloningssysteem**: Wissel punten in voor bonussen en kortingen
-- 📱 PWA-ondersteuning met offline fallback
-- ♿ WCAG 2.1 AA toegankelijk
+- 💎 **Beloningssysteem**: 
+  - Kinepolis bioscoopticket (200 punten)
+  - Bol.com cadeaubonnen (250 punten)
+  - Gratis koffie, parkeren, kortingen
+  - Priority check-out toegang
+- 🎮 **Promotiecode**: Voer codes in voor extra punten (Easter egg: "rosebud" = 1000 punten)
+- 📱 **PWA**: Installeerbaar op telefoon met offline support
+- ♿ **Toegankelijkheid**: WCAG 2.1 AA compliant
 
 ## 🚀 Quick Start
 
 ### Vereisten
 
-- Node.js 20+
-- npm 10+
+- **Node.js** 20 of hoger
+- **npm** 10 of hoger
+- Moderne browser met GPS ondersteuning (optioneel)
 
-### Installatie
+### Installatie & Gebruik
 
 ```bash
-# Clone repository
+# 1. Download of clone het project
 git clone git@github.com:RobinJorissen/CrowdEase.git
-cd CrowdEase
+cd CrowdEase/crowdease
 
-# Installeer dependencies
+# 2. Installeer dependencies
 npm install
 
-# Start development server
+# 3. Start development server
 npm run dev
+
+# 4. Open in browser
+# Ga naar http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in je browser.
+### 📍 Aanbevolen Startlocatie
+
+**Bekijk de app bij voorkeur vanaf Korenmarkt, Gent** voor de beste ervaring, aangezien de mockdata 100+ winkels bevat gefocust op het Gentse centrum.
+
+Als je niet in Gent bent:
+- De app gebruikt development fallback naar Gent Centrum (51.0543, 3.7174)
+- Je kan ook een adres invoeren via het zoekicoon
+- Live tracking werkt op elke locatie met GPS
+
+### 🎮 Features Uitproberen
+
+1. **Kaart bekijken**: Markers tonen drukte (groen = rustig, rood = druk)
+2. **Lijst weergave**: Toggle knop rechtsboven voor gesorteerde lijst met aanbevelingen
+3. **Check-in**: Klik op een winkel, klik "Check in" om punten te verdienen
+4. **Beloningen**: Rechtsboven punten badge → Bekijk beschikbare beloningen
+5. **Promotiecode**: Profiel pagina → Voer "rosebud" in voor 1000 punten!
+6. **Filters**: Filter op winkeltype (supermarkt, apotheek, bakkerij, etc.)
+7. **Gesloten winkels**: Toggle om gesloten winkels te tonen/verbergen
 
 ### Testen
 
