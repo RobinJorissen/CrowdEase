@@ -38,7 +38,7 @@ CrowdEase helpt gebruikers om rustige winkels te vinden door:
 
 ```bash
 # Clone repository
-git clone <repository-url>
+git clone git@github.com:RobinJorissen/CrowdEase.git
 cd CrowdEase
 
 # Installeer dependencies
