@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>Generate Icons</title></head>
+<body>
+<canvas id="canvas192" width="192" height="192"></canvas>
+<canvas id="canvas512" width="512" height="512"></canvas>
+<script>
+function drawIcon(canvas, size) {
+  const ctx = canvas.getContext('2d');
+  const scale = size / 192;
+  
+  // Background
+  ctx.fillStyle = '#10b981';
+  ctx.beginPath();
+  ctx.roundRect(0, 0, size, size, 24 * scale);
+  ctx.fill();
+  
+  // Outer circle
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, 48 * scale, 0, Math.PI * 2);
+  ctx.fill();
+  
+  ctx.fillStyle = '#10b981';
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, 24 * scale, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Inner circle
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, 12 * scale, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+drawIcon(document.getElementById('canvas192'), 192);
+drawIcon(document.getElementById('canvas512'), 512);
+
+// Download links
+const link192 = document.createElement('a');
+link192.download = 'icon-192.png';
+link192.href = document.getElementById('canvas192').toDataURL();
+link192.textContent = 'Download 192x192';
+link192.style.display = 'block';
+document.body.appendChild(link192);
+
+const link512 = document.createElement('a');
+link512.download = 'icon-512.png';
+link512.href = document.getElementById('canvas512').toDataURL();
+link512.textContent = 'Download 512x512';
+link512.style.display = 'block';
+document.body.appendChild(link512);
+</script>
+</body>
+</html>
