@@ -72,8 +72,14 @@ export default function StoreList({
   }, [stores, userLocation]);
 
   return (
-    <div className="absolute inset-0 bg-white z-[1000] overflow-y-auto pb-20">
-      <div className="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 z-10">
+    <div
+      className="absolute inset-0 bg-white z-[1000] overflow-y-auto pb-20"
+      data-testid="store-list-container"
+    >
+      <div
+        className="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 z-10"
+        data-testid="store-list-header"
+      >
         <h2 className="text-lg font-semibold text-gray-900">Winkels ({sortedStores.length})</h2>
         <p className="text-sm text-gray-600 mt-1">Gesorteerd op afstand</p>
       </div>

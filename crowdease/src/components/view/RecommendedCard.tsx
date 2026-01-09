@@ -35,6 +35,7 @@ export default function RecommendedCard({ store, distance, onClick }: Recommende
     <div
       onClick={onClick}
       className="mx-4 mt-4 mb-2 bg-gradient-to-br from-emerald-50 to-emerald-100 border-2 border-emerald-300 rounded-xl shadow-lg cursor-pointer hover:shadow-xl transition-all"
+      data-testid="recommended-store-card"
     >
       <div className="p-4">
         {/* Badge */}

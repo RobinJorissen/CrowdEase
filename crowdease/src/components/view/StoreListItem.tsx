@@ -143,10 +143,14 @@ export default function StoreListItem({ store, distance, onClick, onRefresh }: S
 
   return (
     <>
-      <div className={`w-full border-b border-gray-200 ${crowdInfo.gradient}`}>
+      <div
+        className={`w-full border-b border-gray-200 ${crowdInfo.gradient}`}
+        data-testid={`store-list-item-${store.id}`}
+      >
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="w-full text-left p-4 hover:bg-gray-50 transition-colors"
+          data-testid={`store-item-expand-${store.id}`}
         >
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">

@@ -29,7 +29,9 @@ export default function CheckInButton({ storeId, storeName, onSuccess }: CheckIn
       // Get current location
       const location = await getCurrentLocation();
       if (!location) {
-        setMessage('Je kan niet inchecken zonder locatie toestemming. Wil je toch 5 punten verdienen? Zet je locatie aan en probeer het opnieuw.');
+        setMessage(
+          'Je kan niet inchecken zonder locatie toestemming. Wil je toch 5 punten verdienen? Zet je locatie aan en probeer het opnieuw.'
+        );
         setLoading(false);
         return;
       }
@@ -79,6 +81,7 @@ export default function CheckInButton({ storeId, storeName, onSuccess }: CheckIn
         onClick={handleCheckIn}
         disabled={loading || !canCheckIn(storeId)}
         className="w-full bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-emerald-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all"
+        data-testid="check-in-button"
       >
         {loading ? 'Inchecken...' : 'Check-in (+5 punten)'}
       </button>
@@ -88,6 +91,7 @@ export default function CheckInButton({ storeId, storeName, onSuccess }: CheckIn
           className={`text-sm ${
             message.includes('succesvol') ? 'text-emerald-700' : 'text-red-600'
           }`}
+          data-testid="check-in-message"
         >
           {message}
         </p>

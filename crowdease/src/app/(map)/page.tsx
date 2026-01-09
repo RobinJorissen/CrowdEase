@@ -9,7 +9,7 @@ const StoreMap = dynamic(() => import('@/components/map/StoreMap'), {
 
 export default function MapPage() {
   return (
-    <main className="h-screen w-full">
+    <main className="h-screen w-full" data-testid="map-page">
       <StoreMap />
     </main>
   );

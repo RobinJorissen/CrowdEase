@@ -310,7 +310,7 @@ export default function StoreMap() {
   };
 
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-full w-full" data-testid="store-map-container">
       {showRewards && <RewardsScreen onClose={() => setShowRewards(false)} />}
 
       <ViewToggleButton currentView={viewMode} onViewChange={setViewMode} />
@@ -358,6 +358,7 @@ export default function StoreMap() {
               isLiveTracking ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-white hover:bg-gray-50'
             }`}
             aria-label={isLiveTracking ? 'Live locatie actief' : 'Live locatie inactief'}
+            data-testid="live-tracking-toggle"
           >
             <svg
               className={`w-5 h-5 ${isLiveTracking ? 'text-white' : 'text-gray-700'}`}
@@ -374,7 +375,7 @@ export default function StoreMap() {
       )}
 
       {loading && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1003] bg-white rounded-lg shadow-lg p-4">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1003] bg-white rounded-lg shadow-lg p-4" data-testid="loading-indicator">
           <div className="flex items-center gap-3">
             <div className="animate-spin rounded-full h-6 w-6 border-2 border-emerald-600 border-t-transparent" />
             <span className="text-gray-700">Winkels laden...</span>
@@ -383,7 +384,7 @@ export default function StoreMap() {
       )}
 
       {error && (
-        <div className="absolute top-28 left-4 right-4 z-[1003] bg-red-50 border border-red-200 rounded-lg p-4 shadow-lg md:left-auto md:right-4 md:w-96">
+        <div className="absolute top-28 left-4 right-4 z-[1003] bg-red-50 border border-red-200 rounded-lg p-4 shadow-lg md:left-auto md:right-4 md:w-96" data-testid="error-message">
           <div className="flex items-start gap-3">
             <svg
               className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5"
@@ -401,11 +402,12 @@ export default function StoreMap() {
               <button
                 onClick={() => fetchStores(center.lat, center.lng)}
                 className="mt-2 text-sm text-red-600 hover:text-red-700 font-medium"
+                data-testid="retry-button"
               >
                 Opnieuw proberen
               </button>
             </div>
-            <button onClick={() => setError(null)} className="text-red-400 hover:text-red-600">
+            <button onClick={() => setError(null)} className="text-red-400 hover:text-red-600" data-testid="close-error-button">
               ✕
             </button>
           </div>
@@ -413,7 +415,7 @@ export default function StoreMap() {
       )}
 
       {successMessage && (
-        <div className="absolute top-28 left-4 right-4 z-[1003] bg-emerald-50 border border-emerald-200 rounded-lg p-4 shadow-lg md:left-auto md:right-4 md:w-96">
+        <div className="absolute top-28 left-4 right-4 z-[1003] bg-emerald-50 border border-emerald-200 rounded-lg p-4 shadow-lg md:left-auto md:right-4 md:w-96" data-testid="success-message">
           <div className="flex items-start gap-3">
             <svg
               className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5"
@@ -430,6 +432,7 @@ export default function StoreMap() {
             <button
               onClick={() => setSuccessMessage(null)}
               className="text-emerald-400 hover:text-emerald-600"
+              data-testid="close-success-button"
             >
               ✕
             </button>
@@ -450,6 +453,7 @@ export default function StoreMap() {
         zoom={zoom}
         zoomControl={false}
         className="h-full w-full"
+        data-testid="leaflet-map"
       >
         <MapController center={center} zoom={zoom} />
 

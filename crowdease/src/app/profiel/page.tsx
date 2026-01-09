@@ -58,12 +58,13 @@ export default function ProfielPage() {
   const usedRewards = redeemedRewards.filter((r) => r.used);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50" data-testid="profile-page">
       {/* Header */}
       <div className="bg-emerald-600 text-white px-4 py-6">
         <button
           onClick={() => router.push('/')}
           className="mb-4 flex items-center gap-2 text-white/90 hover:text-white"
+          data-testid="back-to-map-button"
         >
           <ArrowLeft size={20} />
           <span>Terug naar kaart</span>
@@ -85,7 +86,10 @@ export default function ProfielPage() {
       </div>
 
       {/* Points Summary */}
-      <div className="bg-white mx-4 -mt-6 rounded-lg shadow-md p-6 mb-4">
+      <div
+        className="bg-white mx-4 -mt-6 rounded-lg shadow-md p-6 mb-4"
+        data-testid="points-summary"
+      >
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-gray-900">Mijn Punten</h2>
           <div className="flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full">
@@ -237,7 +241,10 @@ export default function ProfielPage() {
       </div>
 
       {/* Promo Code */}
-      <div className="bg-white mx-4 mb-20 rounded-lg shadow-md p-6">
+      <div
+        className="bg-white mx-4 mb-20 rounded-lg shadow-md p-6"
+        data-testid="promo-code-section"
+      >
         <div className="flex items-center gap-2 mb-4">
           <Gift className="text-emerald-600" size={20} />
           <h2 className="text-lg font-semibold text-gray-900">Promotiecode</h2>
@@ -255,10 +262,12 @@ export default function ProfielPage() {
             onKeyDown={(e) => e.key === 'Enter' && handleRedeemCode()}
             placeholder="Voer code in"
             className="flex-1 min-w-0 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-gray-900"
+            data-testid="promo-code-input"
           />
           <button
             onClick={handleRedeemCode}
             className="px-3 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors flex-shrink-0"
+            data-testid="promo-code-submit"
           >
             OK
           </button>
@@ -270,6 +279,7 @@ export default function ProfielPage() {
                 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                 : 'bg-red-50 text-red-700 border border-red-200'
             }`}
+            data-testid="promo-code-message"
           >
             {codeMessage.text}
           </div>

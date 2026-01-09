@@ -10,7 +10,10 @@ export default function RewardCard({ reward, userPoints, onRedeem }: RewardCardP
   const canAfford = userPoints >= reward.cost;
 
   return (
-    <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+    <div
+      className="border rounded-lg p-4 hover:shadow-md transition-shadow"
+      data-testid={`reward-card-${reward.id}`}
+    >
       <div className="flex justify-between items-start mb-2">
         <div className="flex-1">
           <h3 className="font-semibold text-lg text-gray-900">{reward.title}</h3>
@@ -31,6 +34,7 @@ export default function RewardCard({ reward, userPoints, onRedeem }: RewardCardP
             ? 'bg-emerald-600 text-white hover:bg-emerald-700'
             : 'bg-gray-200 text-gray-500 cursor-not-allowed'
         }`}
+        data-testid="redeem-reward-button"
       >
         {canAfford ? 'Inwisselen' : 'Onvoldoende punten'}
       </button>

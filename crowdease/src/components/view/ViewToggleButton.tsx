@@ -13,7 +13,7 @@ export default function ViewToggleButton({ currentView, onViewChange }: ViewTogg
   const router = useRouter();
 
   return (
-    <div className="absolute top-4 right-4 z-[1001] flex gap-2">
+    <div className="absolute top-4 right-4 z-[1001] flex gap-2" data-testid="view-toggle-container">
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         <div className="flex">
           <button
@@ -25,6 +25,7 @@ export default function ViewToggleButton({ currentView, onViewChange }: ViewTogg
             }`}
             aria-label="Kaartweergave"
             aria-pressed={currentView === 'map'}
+            data-testid="view-toggle-map"
           >
             <Map size={20} />
           </button>
@@ -37,6 +38,7 @@ export default function ViewToggleButton({ currentView, onViewChange }: ViewTogg
             }`}
             aria-label="Lijstweergave"
             aria-pressed={currentView === 'list'}
+            data-testid="view-toggle-list"
           >
             <List size={20} />
           </button>
@@ -46,6 +48,7 @@ export default function ViewToggleButton({ currentView, onViewChange }: ViewTogg
         onClick={() => router.push('/profiel')}
         className="bg-white rounded-lg shadow-md p-3 text-gray-700 hover:bg-gray-100 transition-colors"
         aria-label="Profiel"
+        data-testid="profile-button"
       >
         <User size={20} />
       </button>

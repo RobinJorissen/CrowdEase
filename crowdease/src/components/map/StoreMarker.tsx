@@ -47,9 +47,9 @@ export default function StoreMarker({
   });
 
   return (
-    <Marker position={[lat, lng]} icon={icon}>
+    <Marker position={[lat, lng]} icon={icon} data-testid={`store-marker-${storeId}`}>
       <Popup>
-        <div className="text-sm min-w-[200px]">
+        <div className="text-sm min-w-[200px]" data-testid="store-popup">
           <div className="flex items-center gap-2 mb-2">
             <h3 className="font-bold text-gray-900">{name}</h3>
             {isRecommended && <Star size={16} className="text-emerald-600 fill-emerald-600" />}
@@ -69,18 +69,21 @@ export default function StoreMarker({
               <button
                 onClick={() => onReportCrowd(storeId, 'rustig')}
                 className="px-2 py-1.5 text-xs font-medium rounded bg-green-600 hover:bg-green-700 text-white"
+                data-testid="crowd-report-rustig"
               >
                 Rustig
               </button>
               <button
                 onClick={() => onReportCrowd(storeId, 'matig')}
                 className="px-2 py-1.5 text-xs font-medium rounded bg-yellow-600 hover:bg-yellow-700 text-white"
+                data-testid="crowd-report-matig"
               >
                 Matig
               </button>
               <button
                 onClick={() => onReportCrowd(storeId, 'druk')}
                 className="px-2 py-1.5 text-xs font-medium rounded bg-red-600 hover:bg-red-700 text-white"
+                data-testid="crowd-report-druk"
               >
                 Druk
               </button>

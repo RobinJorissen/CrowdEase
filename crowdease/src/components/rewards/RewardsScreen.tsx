@@ -66,11 +66,18 @@ export default function RewardsScreen({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-[1003] flex items-center justify-center p-4">
+    <div
+      className="fixed inset-0 bg-black/50 z-[1003] flex items-center justify-center p-4"
+      data-testid="rewards-screen"
+    >
       <div className="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
         <div className="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
           <h2 className="text-2xl font-bold">Bonussen</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700"
+            data-testid="close-rewards-button"
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
